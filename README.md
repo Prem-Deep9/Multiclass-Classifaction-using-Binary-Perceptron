@@ -1,8 +1,12 @@
 Implementing Binary Perception from scratch using Python.
 
 # Binary Perceptron
-
-
+The Perceptron algorithm is one of the earliest supervised machine learning technique used to classify data points into two groups. This algorithm was invented by Frank Rosenblatt in 1958 and was used to identify different types of shapes. Perceptron is a model of a single neuron.\
+The inputs are multiplied with respective weights and summed up giving us net input. Bias is added to the net input to calculate activation score. The activation score is the compared with a threshold from the activation function we choose. If greater than threshold or zero in our case, when activation score is greater than 0 we say output is 1 or positive and if it is less than zero we output is -1 or negative.
+When correct classification happens the weights remain unchanged, when a wrong classification occurs the weights are updated by the formula wi = wi+ y ⋅ xi where y being the desired output and bias is updated with the formula b = b + y. The model runs for all inputs updating weights and biases at every stage. When all inputs and iterations are completed we get a trained set of weights and bias. Which can be used to test data for accuracy.\
+Input : XT = (x1, x2, …, xd), weights = WT = (w1,w2, …,wd)\
+Activation score a = $\\sum\limits_{i=1}^{d} w_i x_i = \overline{W^T X}$\
+![alt text](https://miro.medium.com/v2/resize:fit:1068/1*Z1_IgFO1c6tq4Tz1iwJraw.png)
 
 
 # One-vs-One Approach
@@ -25,9 +29,9 @@ In this approach, we assume that the binary classification algorithm A can outpu
 
 # Regularisation
 
-• Regularisation is a process of reducing overfitting in a model by constraining it (reducing the complexity/no. of parameters)
-• For classifiers that use a weight vector, regularisation can be done by minimizing the norm (length) of the weight vector.
-• Several popular regularisation methods exist
-• L2 regularisation (ridge regression or Tikhonov regularisation)
-• L1 regularisation (Lasso regression)
-• L1+L2 regularisation (mixed or Elastic Net regularisation)
+- Regularisation is a process of reducing overfitting in a model by constraining it (reducing the complexity/no. of parameters)
+- For classifiers that use a weight vector, regularisation can be done by minimizing the norm (length) of the weight vector.
+- Several popular regularisation methods exist
+- L2 regularisation (ridge regression or Tikhonov regularisation)
+- L1 regularisation (Lasso regression)
+- L1+L2 regularisation (mixed or Elastic Net regularisation)
