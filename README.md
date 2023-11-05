@@ -6,7 +6,7 @@ The inputs are multiplied with respective weights and summed up giving us net in
 When correct classification happens the weights remain unchanged, when a wrong classification occurs the weights are updated by the formula wi = wi+ y ⋅ xi where y being the desired output and bias is updated with the formula b = b + y. The model runs for all inputs updating weights and biases at every stage. When all inputs and iterations are completed we get a trained set of weights and bias. Which can be used to test data for accuracy.\
 Input : XT = (x1, x2, …, xd), weights = WT = (w1,w2, …,wd)\
 Activation score a = $\\sum\limits_{i=1}^{d} w_i x_i = \overline{W^T X}$\
-![alt text](https://miro.medium.com/v2/resize:fit:1068/1*Z1_IgFO1c6tq4Tz1iwJraw.png)
+<img src="https://github.com/Prem-Deep9/Perceptron/blob/main/Binary%20Perceptron.png" height="400" width="600">
 
 
 # One-vs-One Approach
