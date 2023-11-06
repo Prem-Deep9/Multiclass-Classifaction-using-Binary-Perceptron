@@ -158,7 +158,7 @@ for index, row in test.iterrows():
 
     if class1_score > class2_score and class1_score > class3_score:
         predicted_class = 'class-1'
-    elif class2_score > class1_votes and class2_score > class3_score:
+    elif class2_score > class1_score and class2_score > class3_score:
         predicted_class = 'class-2'
     else:
         predicted_class = 'class-3'
@@ -189,7 +189,7 @@ for L in Regularisation_Coefficient:
 
         if class1_score > class2_score and class1_score > class3_score:
             predicted_class = 'class-1'
-        elif class2_score > class1_votes and class2_score > class3_score:
+        elif class2_score > class1_score and class2_score > class3_score:
             predicted_class = 'class-2'
         else:
             predicted_class = 'class-3'
