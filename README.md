@@ -10,7 +10,7 @@ When a correct classification happens the weights remain unchanged, when a wrong
 Input : XT = (x1, x2, …, xd), weights = WT = (w1,w2, …,wd)\
 Activation score a = $\\sum\limits_{i=1}^{d} w_i x_i = \overline{W^T X}$\
 <img src="https://github.com/Prem-Deep9/Perceptron/blob/main/Binary%20Perceptron.png" height="400" width="600">\
-In our code, Initially, the weights are initialized as zero for the sake of simplicity, for different problems they can be initialized differently. The Bias I initialized next, can be initialized as zero as well. The Algorithm processes objects from the training data set one by one (as opposed to batch learning that requires access to the entire data set, e.g. k-NN).\
+Initially, the weights are initialized as zero for the sake of simplicity, for different problems they can be initialized differently. The Bias I initialized next, can be initialized as zero as well. The Algorithm processes objects from the training data set one by one (as opposed to batch learning that requires access to the entire data set, e.g. k-NN).\
 Error driven: the parameters are updated only when a test object is classified wrongly using the current parameters (weights and bias).
 
 ### Pseudo Code:
