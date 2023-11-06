@@ -78,11 +78,11 @@ The choice of the numeric score depends on the classifier at hand.
 # Results for test data with 20 epochs and initial weights & bias =0 and Regularisation_Coefficient = [.01, 0.1, 1.0, 10.0, 100.0]
 Accuracy of one vs one approach to classify the data is 100.0\
 Accuracy of one vs Rest approach to classify the data is 73.33333333333333\
-Accuracy of one vs Rest with Regularisation Coeffecient 0.01 to classify the data is 70.0\
-Accuracy of one vs Rest with Regularisation Coeffecient 0.1 to classify the data is 66.66666666666666\
-Accuracy of one vs Rest with Regularisation Coeffecient 1.0 to classify the data is 30.0\
-Accuracy of one vs Rest with Regularisation Coeffecient 10.0 to classify the data is 33.33333333333333\
-Accuracy of one vs Rest with Regularisation Coeffecient 100.0 to classify the data is 33.33333333333333
+Accuracy of one vs Rest with Regularisation Coefficient 0.01 to classify the data is 70.0\
+Accuracy of one vs Rest with Regularisation Coefficient 0.1 to classify the data is 66.66666666666666\
+Accuracy of one vs Rest with Regularisation Coefficient 1.0 to classify the data is 30.0\
+Accuracy of one vs Rest with Regularisation Coefficient 10.0 to classify the data is 33.33333333333333\
+Accuracy of one vs Rest with Regularisation Coefficient 100.0 to classify the data is 33.33333333333333
 
 # Inference
 - small changes in the training data significantly impact a model's accuracy, it is a clear indication of high variance or overfitting. High variance means that the model is overly sensitive to the specific data points it was trained on, and it fails to generalize well to new, unseen data.
