@@ -65,3 +65,236 @@ The choice of the numeric score depends on the classifier at hand.
 - L2 regularisation (ridge regression or Tikhonov regularisation)
 - L1 regularisation (Lasso regression)
 - L1+L2 regularisation (mixed or Elastic Net regularisation)
+
+# Guide for running the code
+1. Install the modules Numpy and Pandas.
+2. Replace the path mentioned in the code near pd.read_csv wherever it appears with the path to test and train data files respectively on your computer.
+3. For One-vs-One approach class instance of Perceptron needs following input variables in order: datasets(pass 'train_1vs2' to discriminate between class-1 and class-2, pass 'train_2vs3' to discriminate between class-2 and class-3, pass 'train_1vs3' to discriminate between class-1 and class-3), initial weights (list of length 4), bias(integer) and iterations(integer) as input to the class object. After initializing the class Object, call the methods train with respective preprocessed data and test on each data point of the test data.
+5. For One-vs-Rest approach class instance of Perceptron needs the following input variables in order: datasets(pass 'train_1vsRest' to discriminate between class-1 and rest, pass 'train_2vsRest' to discriminate between class-2 and rest, pass 'train_3vsRest' to discriminate between class-3 and rest), initial weights (list of length 4), bias(integer) and iterations (integer) as input to the class object. After initializing the class Object, call the methods train with respective preprocessed data and multi_test on each data point of the test data.
+6. One-vs-rest with Regularisation uses Perceptron_Regularisation class. The class object is similar to Perceptron, the Only difference being adding a regularisation coefficient parameter to initialize the class object. The approach is similar to One-vs-Rest.
+7. Class predictions and overall accuracies are printed onto the terminal.
+8. Sample datasets and class instances are provided, you can run the code directly to see results with default inputs.
+
+# Results for test data with 20 epochs and initial weights & bias =0 and Regularisation_Coefficient = [.01, 0.1, 1.0, 10.0, 100.0]
+Predicted Class: class-1
+Predicted Class: class-1
+Predicted Class: class-1
+Predicted Class: class-1
+Predicted Class: class-1
+Predicted Class: class-1
+Predicted Class: class-1
+Predicted Class: class-1
+Predicted Class: class-1
+Predicted Class: class-1
+Predicted Class: class-2
+Predicted Class: class-2
+Predicted Class: class-2
+Predicted Class: class-2
+Predicted Class: class-2
+Predicted Class: class-2
+Predicted Class: class-2
+Predicted Class: class-2
+Predicted Class: class-2
+Predicted Class: class-2
+Predicted Class: class-3
+Predicted Class: class-3
+Predicted Class: class-3
+Predicted Class: class-3
+Predicted Class: class-3
+Predicted Class: class-3
+Predicted Class: class-3
+Predicted Class: class-3
+Predicted Class: class-3
+Predicted Class: class-3
+Accuracy of one vs one approach to classify the data is 100.0
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-3, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-3, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-3, Original Class: class-2
+Predicted Class: class-3, Original Class: class-2
+Predicted Class: class-3, Original Class: class-2
+Predicted Class: class-3, Original Class: class-2
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Accuracy of one vs Rest approach to classify the data is 73.33333333333333
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Accuracy of one vs Rest with Regularisation Coeffecient 0.01 to classify the data is 70.0
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Predicted Class: class-3, Original Class: class-3
+Accuracy of one vs Rest with Regularisation Coeffecient 0.1 to classify the data is 66.66666666666666
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-1
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-2
+Predicted Class: class-1, Original Class: class-3
+Predicted Class: class-1, Original Class: class-3
+Predicted Class: class-1, Original Class: class-3
+Predicted Class: class-1, Original Class: class-3
+Predicted Class: class-1, Original Class: class-3
+Predicted Class: class-1, Original Class: class-3
+Predicted Class: class-1, Original Class: class-3
+Predicted Class: class-1, Original Class: class-3
+Predicted Class: class-1, Original Class: class-3
+Predicted Class: class-1, Original Class: class-3
+Accuracy of one vs Rest with Regularisation Coeffecient 1.0 to classify the data is 30.0
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Accuracy of one vs Rest with Regularisation Coeffecient 10.0 to classify the data is 33.33333333333333
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-1
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-2
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Predicted Class: class-2, Original Class: class-3
+Accuracy of one vs Rest with Regularisation Coeffecient 100.0 to classify the data is 33.33333333333333
+
+# Inference
+- small changes in the training data significantly impact a model's accuracy, it is a clear indication of high variance or overfitting. High variance means that the model is overly sensitive to the specific data points it was trained on, and it fails to generalize well to new, unseen data.
+- A binary perceptron, like any other machine learning model, can exhibit high variance when trained on a small amount of data. Variance, in the context of machine learning, refers to the model's sensitivity to the specific training data it is provided.
+- Ways to improve: Collect More Data, Cross-Validation, Hyperparameter Tuning: epochs, etc., initial different initial weights and bias, Regularization, usage of complex models.
