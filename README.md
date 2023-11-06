@@ -1,13 +1,26 @@
 Implementing Binary Perception from scratch using Python.
 
 # Binary Perceptron
-The Perceptron algorithm is one of the earliest supervised machine learning technique used to classify data points into two groups. This algorithm was invented by Frank Rosenblatt in 1958 and was used to identify different types of shapes. Perceptron is a model of a single neuron.\
-The inputs are multiplied with respective weights and summed up giving us net input. Bias is added to the net input to calculate activation score. The activation score is the compared with a threshold from the activation function we choose. If greater than threshold or zero in our case, when activation score is greater than 0 we say output is 1 or positive and if it is less than zero we output is -1 or negative.
-When correct classification happens the weights remain unchanged, when a wrong classification occurs the weights are updated by the formula wi = wi+ y ⋅ xi where y being the desired output and bias is updated with the formula b = b + y. The model runs for all inputs updating weights and biases at every stage. When all inputs and iterations are completed we get a trained set of weights and bias. Which can be used to test data for accuracy.\
+The Perceptron algorithm is one of the earliest supervised machine learning techniques used to classify data points into two groups. This algorithm was invented by Frank Rosenblatt in 1958 and was used to identify different types of shapes. A perceptron is a model of a single neuron.\
+The inputs are multiplied with respective weights and summed up giving us net input. Bias is added to the net input to calculate the activation score. The activation score is then compared with a threshold from the activation function we choose. If greater than the threshold i.e. zero in our case, when the activation score is greater than 0 we say the output is 1 or positive and if it is less than zero we output is -1 or negative.
+When a correct classification happens the weights remain unchanged, when a wrong classification occurs the weights are updated by the formula wi = wi+ y ⋅ xi where y is the desired output and bias is updated with the formula b = b + y. The model runs for all inputs updating weights and biases at every stage. When all inputs and iterations are completed we get a trained set of weights and bias. Which can be used to test data for accuracy.\
 Input : XT = (x1, x2, …, xd), weights = WT = (w1,w2, …,wd)\
 Activation score a = $\\sum\limits_{i=1}^{d} w_i x_i = \overline{W^T X}$\
-<img src="https://github.com/Prem-Deep9/Perceptron/blob/main/Binary%20Perceptron.png" height="400" width="600">
+<img src="https://github.com/Prem-Deep9/Perceptron/blob/main/Binary%20Perceptron.png" height="400" width="600">\
+In our code, Initially, the weights are initialized as zero for the sake of simplicity, for different problems they can be initialized differently. The Bias I initialized next, can be initialized as zero as well. The Algorithm processes objects from the training data set one by one (as opposed to batch learning that requires access to the entire data set, e.g. k-NN).\
+Error driven: the parameters are updated only when a test object is classified wrongly using the current parameters (weights and bias).
 
+### Pseudo Code:
+PerceptronTrain (Training data: D, MaxIter)
+1. w<sub>i</sub> = 0 for all i = 1,...,d
+2. b = 0
+3. for iter = 1 ... MaxIter do
+4. &nbsp;&nbsp;&nbsp;&nbsp;for all ($\overline{W^T X})\in D$ do
+5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a = $\overline{W^T X}$ + b
+6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y . a <= 0 then
+7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w<sub>i</sub> = w<sub>i</sub> + y . x<sub>i</sub>, for all i = 1, ... , d
+8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b = b + y
+9. return b, w<sub>1</sub>, w<sub>2</sub>, ... , w<sub>d</sub>
 
 # One-vs-One Approach
 In this approach, a binary classifier is trained for every pair of classes. The idea is to classify the data into one of the two classes in each binary classifier. When you want to make a prediction, you apply all classifiers to the data point and use a voting mechanism (e.g., majority voting) to determine the final class. Here's how it works:
