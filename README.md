@@ -1,4 +1,7 @@
-Implementing Binary Perception from scratch using Python.
+# Project Objectives 
+- Implementing Binary Perception from scratch using Python.
+- Achieving Multiclass Classification on given data, Using One-vs-One and One-vs-Rest approaches.
+- Implementing Regularisation in the One-vs-Rest approach, observing the accuracies for multiple Regularisation coefficient values.
 
 # Binary Perceptron
 The Perceptron algorithm is one of the earliest supervised machine learning techniques used to classify data points into two groups. This algorithm was invented by Frank Rosenblatt in 1958 and was used to identify different types of shapes. A perceptron is a model of a single neuron.\
@@ -22,6 +25,10 @@ PerceptronTrain (Training data: D, MaxIter)
 8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b = b + y
 9. return b, w<sub>1</sub>, w<sub>2</sub>, ... , w<sub>d</sub>
 
+PerceptronTest (b, w<sub>1</sub>, w<sub>2</sub>, ... , w<sub>d</sub>)
+1. a = $\overline{W^T X}$ + b
+2. return sign(a)
+
 # One-vs-One Approach
 In this approach, a binary classifier is trained for every pair of classes. The idea is to classify the data into one of the two classes in each binary classifier. When you want to make a prediction, you apply all classifiers to the data point and use a voting mechanism (e.g., majority voting) to determine the final class. Here's how it works:
 1. For each pair of classes i and j use training objects from classes i and j to train
@@ -31,6 +38,8 @@ classifier A<sub>ij</sub>
 3. Applying the prediction model A<sub>ij</sub> to an incoming object $\bar{X}$ is interpreted as voting. A<sub>ij</sub> votes either +1 for $\bar{X}$ to be in class i, or A<sub>ij</sub> votes +1 for $\bar{X}$ to be in class j.
 4. For an incoming object $\bar{X}$, apply all prediction models one by one.
 5. The class label with the most votes is declared as the winner.
+### Drawbacks
+There might be ambiguity if some classes got the same number of votes (if the binary classifier can produce a confidence score, it can be used to break ties)
 
 # One-vs-Many Approach
 
@@ -39,6 +48,14 @@ In this approach, we assume that the binary classification algorithm A can outpu
 2. This results in K prediction models.
 3. For an incoming object $\bar{X}$, apply all prediction models A<sub>1</sub>,A<sub>2</sub>,...,A<sub>K</sub>. 
 4. Output for object $\bar{X}$ the class label y corresponding to the model with the highest score.
+
+The choice of the numeric score depends on the classifier at hand.
+1. For Perceptron: the activation score a = $\overline{W^T X}$ + b
+2. For Logistic regression: σ(a), where a = $\overline{W^T X}$ + b
+
+### Drawbacks
+- The scale of the confidence scores may differ between the binary classifiers
+- The binary classifiers are trained on unbalanced datasets: usually, the set of negative objects will be much larger than the set of positive objects
 
 # Regularisation
 
