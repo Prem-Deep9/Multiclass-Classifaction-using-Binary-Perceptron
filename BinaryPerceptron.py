@@ -71,10 +71,10 @@ class_labels_2vs3 = ['class-2', 'class-3']
 class_labels_1vs3 = ['class-1', 'class-3']
 
 # Process the data for each case
-train_1vs2 = preprocess_data("CA1data\\train.data", class_labels_1vs2)
-train_2vs3 = preprocess_data("CA1data\\train.data", class_labels_2vs3)
-train_1vs3 = preprocess_data("CA1data\\train.data", class_labels_1vs3)
-test = pd.read_csv("CA1data\\test.data",header=None)
+train_1vs2 = preprocess_data("data\\train.data", class_labels_1vs2)
+train_2vs3 = preprocess_data("data\\train.data", class_labels_2vs3)
+train_1vs3 = preprocess_data("data\\train.data", class_labels_1vs3)
+test = pd.read_csv("data\\test.data",header=None)
 
 #--------------------------------------------------------------------------------------------------------------------------------------
 #Creating datasets for classification of each class one vs rest approach
@@ -90,9 +90,9 @@ class_labels_2vsRest = ['class-2']
 class_labels_3vsRest = ['class-3']
 
 # Preprocess the data for each multiclass scenario
-train_1vsRest = preprocess_multiclass_data("CA1data\\train.data", class_labels_1vsRest)
-train_2vsRest = preprocess_multiclass_data("CA1data\\train.data", class_labels_2vsRest)
-train_3vsRest = preprocess_multiclass_data("CA1data\\train.data", class_labels_3vsRest)
+train_1vsRest = preprocess_multiclass_data("data\\train.data", class_labels_1vsRest)
+train_2vsRest = preprocess_multiclass_data("data\\train.data", class_labels_2vsRest)
+train_3vsRest = preprocess_multiclass_data("data\\train.data", class_labels_3vsRest)
 
 #--------------------------------------------------------------------------------------------------------------------------------------
 # Initialising classes objects for testing code and calling respective class methods for all classifications in order
@@ -170,8 +170,8 @@ print(f"Accuracy of one vs Rest approach to classify the data is {accurate_predi
 #--------------------------------------------------------------------------------------------------------------------------------------
 # Initialising classes objects for testing code and calling respective class methods for all classifications in order
 # for multiclass classification in One vs Rest approach.
-Regularisation_Coeffecient = [.01, 0.1, 1.0, 10.0, 100.0]
-for L in Regularisation_Coeffecient:
+Regularisation_Coefficient = [.01, 0.1, 1.0, 10.0, 100.0]
+for L in Regularisation_Coefficient:
     A = Perceptron_Regularisation(train_1vsRest,[0,0,0,0],0,20,L)
     A.train()
     B = Perceptron_Regularisation(train_2vsRest,[0,0,0,0],0,20,L)
@@ -196,4 +196,4 @@ for L in Regularisation_Coeffecient:
         print(f"Predicted Class: {predicted_class}, Original Class: {original_class}")
         if predicted_class == original_class:
             accurate_predictions += 1
-    print(f"Accuracy of one vs Rest with Regularisation Coeffecient {L} to classify the data is {accurate_predictions/test.shape[0]*100}")
+    print(f"Accuracy of one vs Rest with Regularisation Coefficient {L} to classify the data is {accurate_predictions/test.shape[0]*100}")
